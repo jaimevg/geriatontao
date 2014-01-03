@@ -1,0 +1,45 @@
+package clienteftp;
+    import java.util.ArrayList;
+    import java.io.IOException;
+    import org.apache.commons.net.ftp.FTPFile;
+    import org.apache.commons.net.ftp.FTPClient;
+    import java.util.List;
+public class ClienteFTP {
+private String user, pass, host, directorio ;
+private boolean login;
+FTPClient ftpCliente;
+
+ public ClienteFTP(String host,String usere,String pass){
+
+                 this.user = user; // poner un usuario
+                 this.pass = pass; // poner contra
+                 this.host  = host; //poner contra
+                 ftpCliente = new FTPClient();
+             try {
+            ftpCliente.connect(this.host);
+       this.login=ftpCliente.login(this.user, this.pass);
+                     if(this.login){System.out.println("Login Completado...");}
+                     else{System.out.println("Error...");}
+            } catch (IOException e) {
+                System.err.println(e.getMessage());
+            }
+        }
+
+    public void setDirectorio(String directorio) throws IOException {
+     ftpCliente.changeWorkingDirectory(directorio);
+    }
+
+
+ public List archivos() throws IOException{
+     List archivos= new ArrayList();
+     if(this.login){ 
+         FTPFile[] ftpFiles = ftpCliente.listFiles();
+             for (FTPFile ftpFile : ftpFiles) {
+                  archivos.add("------"+ftpFile.getName()+"----"); 
+                 }
+            }else
+               System.out.println("No logeado...");
+     return archivos;
+ }
+
+}
