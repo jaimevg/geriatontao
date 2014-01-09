@@ -6,7 +6,7 @@ public class Main {
 
     public Listar(String[] args) throws IOException {
       List lista= new ArrayList();
-         ClienteFTP clie=new ClienteFTP("","", ""); // isnertar el host user y pass
+         ClienteFTP clie=new ClienteFTP("","", ""); // sino insertamos el host, user y pass en una variable lo metemos en el argumento
              lista=clie.listar();//asignamos a lista lo q nos devuelve el metodo
              for (Object lis : lista) {//recorremos la lista
             System.out.println(lis.toString());
