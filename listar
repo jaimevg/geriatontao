@@ -1,0 +1,22 @@
+package clienteftp;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+public class Main {
+
+    public listar(String[] args) throws IOException {
+      List lista= new ArrayList();
+         ClienteFTP clie=new ClienteFTP("","", ""); // isnertar el host user y pass
+             lista=clie.listar();//asignamos a lista lo q nos devuelve el metodo
+             for (Object lis : lista) {//recorremos la lista
+            System.out.println(lis.toString());
+        }
+            System.out.println(" \n lista \n");
+         clie.setDirectorio("public_html");
+             lista=clie.listar(); /
+             for (Object lis : lista) {
+            System.out.println(lis.toString());
+        }
+    }
+}
+
