@@ -9,11 +9,11 @@ private String user, pass, host, directorio ;
 private boolean login;
 FTPClient ftpCliente;
 
- public ClienteFTP(String host,String usere,String pass){
+ public ClienteFTP(String host,String user,String pass){
 
-                 this.user = user; // poner un usuario
-                 this.pass = pass; // poner contra
-                 this.host  = host; //poner contra
+                 this.user = user; 
+                 this.pass = pass; 
+                 this.host  = host; 
                  ftpCliente = new FTPClient();
              try {
             ftpCliente.connect(this.host);
